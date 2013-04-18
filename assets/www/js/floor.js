@@ -3,7 +3,7 @@ $(document).ready(function() {
     $("#image").change(function() {
         var src = $(this).val();
 
-        $("#map").html(src ? "<object id=\"svg\" type=\"image/svg+xml\" data=\"svg/" + src + "\" width=\"300\"></object>" : "");
+        $("#map").html(src ? "<object id=\"svg\" type=\"image/svg+xml\" data=\"svg/" + src + "\" width=\"300\" style=\"background-color:white\"></object>" : "");
 		
     });
 }); 
@@ -88,6 +88,7 @@ function parseXml(xml) {
         items.push({
             xCoord: $(this).find("r_x").text(), 
             yCoord: $(this).find("r_y").text(),
+			image: $(this).find("image_link").text(),
 			floor: $(this).find("level").text()
         });
     });
@@ -104,15 +105,27 @@ function addSpot(items) {
 			var mySvg=document.getElementById("svg");
 			var svg=mySvg.getSVGDocument();
 			var circle = document.createElementNS(svgNS,"circle");
+			var rad= 8;
 		
 
-			circle.setAttributeNS(null, "cx",''+ items[i].xCoord +'');
+			circle.setAttributeNS(null, "cx",''+ (items[i].xCoord - rad) +'');
 			circle.setAttributeNS(null, "cy",''+ items[i].yCoord +'');
 			circle.setAttributeNS(null, "r","8");
 			circle.setAttributeNS(null, "fill","red");
-			circle.setAttributeNS(null, "onClick","window.open('http://www.armel.fi','target-name')")
+			
+			function addClick() {
+            alert("hello!");
+			}
+			
+			circle.setAttributeNS(null, "onclick","addClick()");
+			
 			svg.getElementsByTagName("svg")[0].appendChild(circle);
 			
+			
+			
+			
+			
 	}
+
 
 }
