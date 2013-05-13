@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MetroMap</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+<script src="js/floor.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="css/test.css" />
+</head>
+<body>
+<!-- Start of the Index page -->
+<div data-role="page" id="index">
+<div data-role="header">
+</div><!-- /header -->
+<div data-role="content" data-theme="a">
+<div id="deviceready" class="app" >
+<img class="blink" src="images/big_logo.png" width="150"></img> 
+<a href="#home"><img src="images/metromap_logo.png" alt="brand" width="250"></img></a>
+</div>
+<script type="text/javascript" src="cordova-1.8.1.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+app.initialize();
+</script>
+
+</div><!-- /content -->
+<div data-role="footer">
+<h4>Metropolia 2013</h4>
+</div><!-- /footer -->
+</div><!-- /End of the Index page -->
+<!-- Start of the Home page -->
+<div data-role="page" id="home">
+<div data-add-back-btn="true" data-role="header">
+<img id="small_logo" src="images/metromap_small.png" width="100"></img>
+
+
+</div><!-- /header -->
+<div data-role="content" data-theme="a">
+
+<a href="#viewmap" data-role="button">
+<div class="btn_img">
+<img src="images/viewmap_icon.png"></img>
+</div>
+<div class="btn_text">
+<h1>View Map</h1>
+<p>Discover the school<br/>even when you are not there!</p>
+</div></a>
+<a href="#login" id="loginbutton" data-role="button">
+<div class="btn_img">
+<img src="images/login_icon.png"></img>
+</div>
+<div class="btn_text">
+<h1>Log In</h1>
+<p>Check your current location<br/>and search for your destination</p>
+</div></a>
+
+</div><!-- /content -->
+<div data-role="footer">
+<h4>Metropolia 2013</h4>
+</div><!-- /footer -->
+</div><!-- /End of Home page -->
+<!-- Start of the View Map page -->
+<div data-role="page" id="viewmap">
+<div data-add-back-btn="true" data-role="header" style=" text-align:center">
+<img id="small_logo" src="images/metromap_small.png" width="100"></img>
+
+
+</div><!-- /header -->
+<div data-role="content" data-theme="a">
+<div data-role="fieldcontain" id="slider">
+<fieldset data-role="controlgroup">
+<label for="slider">
+Set floor:
+</label>
+<!-- <input id="slider" type="range" name="slider" value="" min="1" max="3" data-highlight="true" data-theme="e" data-track-theme="a" /> -->
+<select name="image" id="image" class="inputbox" size="1">
+<option value="">Select Floor</option>
+<option value="FirstFloor.svg">First</option>
+<option value="SecondFloor.svg">Second</option>
+<option value="ThirdFloor.svg">Third</option>
+</select>
+<div id="map" align="center">
+</div>
+<form >
+<select id = "dropList" onchange="changeColor(this.value)">
+<option value="">Select Room</option>
+</select>
+</form>
+
+</fieldset>
+</div>
+
+
+<div data-role="collapsible" data-content-theme="c">
+<h3>Info</h3>
+<p>You are now in Building A, first floor. Please click on the dots to see 3D images or select another view.</p>
+</div>
+</div><!-- /content -->
+<div data-role="footer">
+<a href="#" id="back_btn" data-role="button" data-mini="true">Back</a>
+<h4>Metropolia 2013</h4>
+
+</div><!-- /footer -->
+</div><!-- /End of the View Map page -->
+<!-- Start of the Log In page -->
+<div data-role="page" id="login">
+
+<div data-add-back-btn="true" data-role="header">
+
+<img id="small_logo" src="images/metromap_small.png" width="100"></img >
+
+
+
+
+</div><!-- /header -->
+
+<div data-role="content" data-theme="a">
+
+<div id="loginForm">
+<img id="metro_logo" src="images/metropolia_logo.png" width="250" ></img>
+
+<form>
+<input data-theme="c" type="text" data-clear-btn="true" placeholder="username" />
+<input data-theme="c" type="text" data-clear-btn="true" placeholder="password" />
+<br/>
+<br/>
+<br/>
+<div id="checkBox">
+<input type="checkbox" id="checkbox" name="checkbox" value="remember"><p class="checkbox">Remember this</p>
+<input type="submit" id="login_btn" value="Log In" >
+<a href="#searchmap" data-role="button" type="submit" >This is a dummy link. After log in, user will go to this page. Click here.</a>
+</div>
+</form>
+
+</div>
+
+</div><!-- /content -->
+
+<div data-role="footer">
+<a href="#" id="back_btn" data-role="button" data-mini="true">Back</a>
+<h4>Metropolia 2013</h4>
+</div><!-- /footer -->
+</div><!-- /End of the Log In page -->
+
+<!-- Start of the Search Map page -->
+<div data-role="page" id="searchmap">
+<div data-add-back-btn="true" data-role="header" style=" text-align:center">
+<img id="small_logo" src="images/metromap_small.png" width="100"></img>
+
+
+</div><!-- /header -->
+<div data-role="content" data-theme="a">
+<div id="search">
+<label for="search-mini">Which room are you looking for?</label>
+<input type="search" placeholder=""name="search-mini" id="search-mini" value="" data-mini="true" />
+<a href="#mapresult" data-role="button" data-mini="true">Search</a>
+</div>
+<div id="map">
+<img src="images/map.jpg" width="300" />
+</div>
+<div data-role="collapsible" data-content-theme="c">
+<h3>Info</h3>
+<p>You are now in Building A, first floor. Please click on the dots to see 3D images or start searching for your room.</p>
+</div>
+</div><!-- /content -->
+<div data-role="footer">
+<a href="#" id="back_btn" data-role="button" data-mini="true">Back</a>
+<h4>Metropolia 2013</h4>
+
+</div><!-- /footer -->
+</div><!-- /End of the Search Map page -->
+<!-- Start the Map Result page-->
+<div data-role="page" id="mapresult">
+<div data-add-back-btn="true" data-role="header">
+<img id="small_logo" src="images/metromap_small.png" width="100"></img>
+
+
+</div><!-- /header -->
+<div data-role="content" data-theme="a">
+
+<div id="map">
+<img src="images/map.jpg" width="300" />
+</div>
+<div data-role="collapsible" data-content-theme="c">
+<h3>Info</h3>
+<p>You are now in Building A, first floor. Please click on the dots to see 3D images or select another view.</p>
+</div>
+</div><!-- /content -->
+<div data-role="footer">
+<a href="#" id="back_btn" data-role="button" data-mini="true">Back</a>
+<h4>Metropolia 2013</h4>
+
+</div><!-- /footer -->
+</div><!-- /End of the Map Result page -->
+</body>
+</html>
