@@ -118,8 +118,8 @@ old = selectRoom;
 function requestImageInfo(){
 $.ajax({
 type: "GET",
-url: "http://users.metropolia.fi/~huiwend/mediaproject/server/xmlGen.php",
-//url: "xmlcoor.xml",
+//url: "http://users.metropolia.fi/~huiwend/mediaproject/server/xmlGen.php",
+url: "xmlcoor.xml",
 dataType: "xml",
 success: function(xml) { 
 var items = parseXml(xml);
@@ -162,36 +162,26 @@ for(var i=0; i<items.length; i++){
 var svgNS = "http://www.w3.org/2000/svg";
 var xlinkNS = "http://www.w3.org/1999/xlink";
 var mySvg=document.getElementById("svg");
-
 var svg=mySvg.getSVGDocument();
-
-console.log("the mysvg from addSpot "+mySvg);
 var circle = document.createElementNS(svgNS,"circle");
 var rad= 8;
+
 circle.setAttributeNS(null, "cx",''+ (items[i].xCoord - rad) +'');
 circle.setAttributeNS(null, "cy",''+ items[i].yCoord +'');
 circle.setAttributeNS(null, "r","8");
-circle.setAttributeNS(null, "fill","red");
-//console.log("image link "+items[i].image);
-circle.setAttributeNS(null, "onclick","addClick()");
-
-
+circle.setAttributeNS(null, "fill","green");
+circle.setAttributeNS(null, "onclick","window.open('"+ items[i].image +"');");
+circle.setAttributeNS(null, "style","cursor: pointer;");
 
 
 svg.getElementsByTagName("svg")[0].appendChild(circle);
 
 
-
-
+}
 
 }
-}
-function addClick() {
-/* for (var i=0; i<items.length; i++){ */
-alert("nbla");
-//window.open("hi");
-/* } */
-}
+
+
 
 
 
