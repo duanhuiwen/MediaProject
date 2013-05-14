@@ -39,13 +39,13 @@ body {
 .app {
     text-align:center;
 	padding-top: 5%;
-	padding-bottom: 5%;
+	padding-bottom: 28%;
                                    /* offset horizontal: half of text area width */
 }
 
 .app img{
-	padding-top: 7%;
-	padding-bottom: 8%;
+	padding-top: 5%;
+	padding-bottom: 5%;
 	margin: 5% auto}
 
 /* Landscape layout (with min-width) */
@@ -149,4 +149,5 @@ div.btn_text{
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
 
