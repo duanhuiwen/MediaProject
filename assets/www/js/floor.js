@@ -143,7 +143,7 @@ $(xml).find("spot").each(function() {
 // }
 var level =	$(this).find("level").text();	
 	
-if((src == "ThirdFloor.svg" && level == 3) || (src == "SecondFloor.svg" && level == 2) || (src == "FirstFloor.svg" && level == 1) ){
+if((src == "ThirdFloor.svg" && level == 3) || (src == "SecondFloor.svg" && level == 2) || (src == "FirstFloor.svg" && level == 1) ||  (src == "ZeroFloor.svg" && level == 0)){
 	items.push({
 		xCoord: $(this).find("r_x").text(), 
 		yCoord: $(this).find("r_y").text(),
@@ -170,7 +170,7 @@ circle.setAttributeNS(null, "cx",''+ (items[i].xCoord - rad) +'');
 circle.setAttributeNS(null, "cy",''+ items[i].yCoord +'');
 circle.setAttributeNS(null, "r","8");
 circle.setAttributeNS(null, "fill","green");
-circle.setAttributeNS(null, "onclick","window.open('"+ items[i].image +"');");
+circle.setAttributeNS(null, "onclick","window.open('http://users.metropolia.fi/~huiwend/mediaproject/server/showImage.php?image="+ items[i].image +"');");
 circle.setAttributeNS(null, "style","cursor: pointer;");
 
 
