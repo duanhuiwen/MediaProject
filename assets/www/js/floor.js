@@ -1,5 +1,7 @@
 //change floor and load map
 var src;
+
+
 $(document).ready(function() {
 $("#image").change(function() {
 src = $(this).val();
@@ -118,8 +120,8 @@ old = selectRoom;
 function requestImageInfo(){
 $.ajax({
 type: "GET",
-//url: "http://users.metropolia.fi/~huiwend/mediaproject/server/xmlGen.php",
-url: "xmlcoor.xml",
+url: "http://users.metropolia.fi/~huiwend/mediaproject/server/xmlGen.php",
+//url: "xmlcoor.xml",
 dataType: "xml",
 success: function(xml) { 
 var items = parseXml(xml);
